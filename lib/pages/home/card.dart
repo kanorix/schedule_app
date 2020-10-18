@@ -39,10 +39,19 @@ class EventCard extends StatelessWidget {
                   ),
                   child: Text(_event.title,
                       textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 30))),
+              Container(
+                  padding: EdgeInsets.only(top: 12.0),
+                  child: Text(
+                      DateUtils.format(_event.start,
+                          format: 'yyyy/MM/dd HH:mm'),
+                      textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 20))),
               Container(
                   padding: EdgeInsets.only(top: 12.0),
-                  child: Text('〇〇日から〇〇日',
+                  child: Text(
+                      DateUtils.format(_event.finish,
+                          format: 'yyyy/MM/dd HH:mm'),
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 20)))
             ],

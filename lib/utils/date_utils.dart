@@ -7,8 +7,10 @@ class DateUtils {
   static final DateTime nextYear = getFuture(years: 1);
 
   static final String formatDefault = 'yyyy/MM/dd';
+  static final String formatDateAndTime = 'yyyy/MM/dd HH:mm';
 
   static String format(DateTime date, {String format}) {
+    if (date == null) return '';
     return DateFormat(format ?? formatDefault).format(date);
   }
 

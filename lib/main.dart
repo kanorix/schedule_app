@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:schedule_app/utils/singleton.dart';
-import 'package:schedule_app/repository/event_calender_repository.dart';
+// import 'package:schedule_app/repository/event_calender_repository.dart';
 import 'db/event_calender/event_calender.dart';
 import 'db/event/event.dart';
 import 'routes/app_route.dart';
@@ -15,8 +15,8 @@ void main() async {
   Hive.registerAdapter(EventCalenderAdapter());
   Hive.registerAdapter(EventAdapter());
 
-  EventCalenderRepository ecr = EventCalenderRepository();
-  await ecr.deleteAll();
+  // EventCalenderRepository ecr = EventCalenderRepository();
+  // await ecr.deleteAll();
 
   runApp(MyApp());
 }

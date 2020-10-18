@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:schedule_app/repository/event_calender_repository.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -8,7 +9,12 @@ class SettingPage extends StatefulWidget {
 class _SettingPageState extends State<SettingPage> {
   bool _active = false;
 
-  void _changeSwitch(bool e) => setState(() => _active = e);
+  EventCalenderRepository _repository = EventCalenderRepository();
+
+  void _changeSwitch(bool e) async {
+    await _repository.deleteAll();
+    setState(() => _active = e);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +38,8 @@ class _SettingPageState extends State<SettingPage> {
                 color: _active ? Colors.orange[700] : Colors.grey[500],
                 size: 50.0,
               ),
-              title: Text('タイトル'),
-              subtitle: Text('サブタイトル'),
+              title: Text('データを削除する'),
+              subtitle: Text('登録したイベントを全削除します。'),
               onChanged: _changeSwitch,
             ),
           ],
