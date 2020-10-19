@@ -42,6 +42,7 @@ class _HomePageState extends State<HomePage> with RouteAware {
         future: repository.findAll(),
         builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
           if (snapshot.hasData) {
+            if (snapshot.data.isEmpty) return Text("スケジュールを作成してください。");
             return ListView(children: createEventCard(snapshot.data));
           } else {
             return Text("データが存在しません");
