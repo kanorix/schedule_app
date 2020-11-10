@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:schedule_app/pages/@modules/app_drawer.dart';
 import 'package:schedule_app/pages/home/card.dart';
 import 'package:schedule_app/repository/event_calender_repository.dart';
-import 'package:schedule_app/utils/singleton.dart';
+import 'package:schedule_app/routes/observer.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,18 +13,19 @@ class _HomePageState extends State<HomePage> with RouteAware {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    Singleton().routeObserver.subscribe(this, ModalRoute.of(context));
+    Observer().subscribe(this, ModalRoute.of(context));
   }
 
   @override
   void dispose() {
-    Singleton().routeObserver.unsubscribe(this);
+    Observer().unsubscribe(this);
     super.dispose();
   }
 
-  // 上の画面がpopされて、この画面に戻ったときに呼ばれます
+  /// この画面に戻ったときに呼ばれる
+  @override
   void didPopNext() {
-    print('return');
+    print('didPopNext');
     setState(() {});
   }
 
@@ -35,7 +36,7 @@ class _HomePageState extends State<HomePage> with RouteAware {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        title: Text('home'),
+        title: Text('今日の予定'),
       ),
       drawer: AppDrawer(),
       body: FutureBuilder(

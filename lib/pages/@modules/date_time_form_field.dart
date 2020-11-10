@@ -9,8 +9,8 @@ class DateTimeFormField extends StatefulWidget {
   final bool isRequiredDate;
   final bool isRequiredTime;
 
-  final Function(String) onChangedDate;
-  final Function(String) onChangedTime;
+  final void Function(String) onChangedDate;
+  final void Function(String) onChangedTime;
 
   DateTimeFormField(this.onChangedDate, this.onChangedTime,
       {this.isRequiredDate, this.isRequiredTime});
@@ -25,8 +25,8 @@ class _DateTimeFormFieldState extends State<DateTimeFormField> {
   final bool isRequiredDate;
   final bool isRequiredTime;
 
-  final Function(String) onChangedDate;
-  final Function(String) onChangedTime;
+  final void Function(String) onChangedDate;
+  final void Function(String) onChangedTime;
 
   _DateTimeFormFieldState(this.onChangedDate, this.onChangedTime,
       {this.isRequiredDate = false, this.isRequiredTime = false});

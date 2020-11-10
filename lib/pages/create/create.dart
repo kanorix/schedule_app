@@ -12,7 +12,7 @@ class CreatePage extends StatefulWidget {
 }
 
 class _CreatePageState extends State<CreatePage> {
-// Formウィジェット内の各フォームを識別するためのキーを設定
+  // Formウィジェット内の各フォームを識別するためのキーを設定
   final _formKey = GlobalKey<FormState>();
 
   final ScheduleForm _form = ScheduleForm();

@@ -1,23 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:schedule_app/utils/singleton.dart';
-// import 'package:schedule_app/repository/event_calender_repository.dart';
-import 'db/event_calender/event_calender.dart';
-import 'db/event/event.dart';
+import 'package:schedule_app/routes/observer.dart';
+import 'repository/database.dart';
 import 'routes/app_route.dart';
 
 void main() async {
-  // Hiveを使うには2つのパッケージが必要
-  // Hiveの初期化
-  await Hive.initFlutter();
-  // カスタムアダプターの追加
-  Hive.registerAdapter(EventCalenderAdapter());
-  Hive.registerAdapter(EventAdapter());
+  // データベースの初期設定
+  DataBase.initialization();
 
-  // EventCalenderRepository ecr = EventCalenderRepository();
-  // await ecr.deleteAll();
-
+  // アプリ起動
   runApp(MyApp());
 }
 
@@ -25,9 +15,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        // debugのバーナーが出すかどうか
         debugShowCheckedModeBanner: false,
-        navigatorObservers: <NavigatorObserver>[Singleton().routeObserver],
+        // 初期ルート(home)
         initialRoute: AppRoute.home,
-        routes: AppRoute.createRoutes());
+        // ルートの設定
+        routes: AppRoute.createRoutes(),
+        // 画面遷移を検知するobserverの設定
+        navigatorObservers: Observer.getNavigatorObservers());
   }
 }

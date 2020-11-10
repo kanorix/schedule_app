@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:schedule_app/utils/date_time_utils.dart';
 import 'package:schedule_app/utils/date_utils.dart';
 
 class DateFormField extends StatefulWidget {
@@ -32,7 +33,7 @@ class _DateFormFieldState extends State<DateFormField> {
         lastDate: DateUtils.nextYear);
 
     if (pickedDate != null) {
-      String result = DateUtils.format(pickedDate);
+      String result = DateTimeUtils.formatDate(pickedDate);
       _inputController.text = result;
       onChanged(result);
     } else {
