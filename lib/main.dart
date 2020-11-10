@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         // debugのバーナーが出すかどうか
-        debugShowCheckedModeBanner: false,
+        // debugShowCheckedModeBanner: false,
         // 初期ルート(home)
         initialRoute: AppRoute.home,
         // ルートの設定
