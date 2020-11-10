@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:schedule_app/forms/schedule_form.dart';
 import 'package:schedule_app/pages/@modules/date_time_form_field.dart';
 import 'package:schedule_app/pages/@modules/space_box.dart';
-import 'package:schedule_app/repository/event_calender_repository.dart';
 
 class CreatePageForm extends StatefulWidget {
   final GlobalKey<FormState> _formKey;
@@ -18,8 +17,6 @@ class _CreatePageFormState extends State<CreatePageForm> {
   final ScheduleForm _form;
 
   _CreatePageFormState(this._formKey, this._form);
-
-  EventCalenderRepository repository = EventCalenderRepository();
 
   @override
   Widget build(BuildContext context) {
